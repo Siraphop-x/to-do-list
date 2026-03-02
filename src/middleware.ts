@@ -1,10 +1,10 @@
 import NextAuth from "next-auth";
 import { authConfig } from "@/lib/auth.config";
 
-export const { auth: middleware } = NextAuth({
+export default NextAuth({
   ...authConfig,
   secret: process.env.AUTH_SECRET,
-});
+}).auth;
 
 export const config = {
   // ยกเว้น login, register, api, static files — ป้องกัน redirect ซ้ำ
